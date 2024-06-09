@@ -1,4 +1,3 @@
-import { Righteous } from "next/font/google";
 import Card from "../ui/dashboard/card/Card";
 import styles from "../ui/dashboard/dashboard.module.css";
 import Righbar from "../ui/dashboard/righbar/Righbar";

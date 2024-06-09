@@ -19,6 +19,28 @@ export const fetchUsers = async (q, page) => {
     throw new Error("Failed to fetch Users");
   }
 };
+
+export const fetchUser = async (id) => {
+  try {
+    connectToDB();
+    const user = await User.findById(id);
+    return user;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch a User");
+  }
+};
+export const fetchProduct = async (id) => {
+  try {
+    connectToDB();
+    const product = await Product.findById(id);
+    return product;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch a product");
+  }
+};
+
 export const fetchProducts = async (q, page) => {
   const regex = new RegExp(q, "i");
 
