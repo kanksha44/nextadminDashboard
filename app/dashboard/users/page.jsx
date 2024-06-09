@@ -8,8 +8,9 @@ const UsersPage = () => {
     <div className={styles.container}>
       <div className={styles.top}>
         <Search placeholder="Search for a user" />
-        <Link href="/dashboard/users/add"> </Link>
-        <button className={styles.addButton}>Add New</button>
+        <Link href="/dashboard/users/add">
+          <button className={styles.addButton}>Add New</button>
+        </Link>
       </div>
       <table className={styles.table}>
         <thead>
@@ -33,6 +34,7 @@ const UsersPage = () => {
                   alt=""
                   className={styles.userImage}
                 />
+                John Doe
               </div>
             </td>
             <td>john@gmail.com</td>
