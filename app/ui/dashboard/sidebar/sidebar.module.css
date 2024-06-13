@@ -34,17 +34,19 @@
 }
 .logout {
   padding: 20px;
-  margin: 5px 0px;
+  margin: 5px 0px 15px;
   display: flex;
   align-items: center;
   gap: 10px;
   border-radius: 10px;
   cursor: pointer;
   background: none;
-  color: #fff;
+  color: var(--textSoft);
   border: none;
   width: 100%;
+  font-weight: 600;
+  font-size: 18px;
 }
 .logout:hover {
-  background-color: #2e374a;
+  background-color: var(--hoverCol);
 }

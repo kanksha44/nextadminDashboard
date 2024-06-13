@@ -5,6 +5,7 @@ import { connectToDB } from "./utils";
 import { redirect } from "next/navigation";
 import bcrypt from "bcrypt";
 import { signIn } from "../auth";
+import { isRedirectError } from "next/dist/client/components/redirect";
 
 //add a user
 export const addUser = async (formData) => {
@@ -29,7 +30,7 @@ export const addUser = async (formData) => {
     await newUser.save();
   } catch (err) {
     console.error("detailed", err);
-    // throw new Error("Failed to create user!");
+    throw new Error("Failed to create user!");
   }
   revalidatePath("/dashboard/users");
   redirect("/dashboard/users");
@@ -150,12 +151,29 @@ export const updateProduct = async (formData) => {
   redirect("/dashboard/products");
 };
 
+// export const authenticate = async (prevState, formData) => {
+//   const { username, password } = Object.fromEntries(formData);
+
+//   try {
+//     await signIn("credentials", { username, password });
+//   } catch (error) {
+//     if (error.message.includes("CredentialsSignin")) {
+//       return "wrong Crendetials";
+//     }
+//     throw error;
+//   }
+// };
+
 export const authenticate = async (prevState, formData) => {
   const { username, password } = Object.fromEntries(formData);
 
   try {
-    await signIn("credentials", { username, password });
+    await signIn("credentials", { username, password, redirect: false });
   } catch (error) {
-    return "wrong Crendetials";
+    if (error.message.includes("CredentialsSignin")) {
+      return "wrong Crendetials";
+    }
+    throw error;
   }
+  redirect("/dashboard"); //manually redirect
 };

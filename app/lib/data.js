@@ -53,6 +53,8 @@ export const fetchProducts = async (q, page) => {
     const products = await Product.find({ title: { $regex: regex } })
       .limit(ITEM_PER_PAGE)
       .skip(ITEM_PER_PAGE * (page - 1));
+    // console.log("count1", count);
+    // console.log("products1", products);
     return { count, products };
   } catch (error) {
     console.log(error);

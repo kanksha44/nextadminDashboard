@@ -77,7 +77,7 @@ const Charts = () => {
           <Line
             type="monotone"
             dataKey="click"
-            stroke="#82ca9d"
+            stroke="#000"
             strokeDasharray="3 4 5 2"
           />
         </LineChart>

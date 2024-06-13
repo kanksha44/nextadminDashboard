@@ -23,7 +23,7 @@
 .form button {
   width: 100%;
   padding: 30px;
-  background-color: teal;
+  background-color: var(--btn1);
   color: var(--text);
   border: none;
   cursor: pointer;

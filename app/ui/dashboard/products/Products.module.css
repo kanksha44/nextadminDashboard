@@ -48,8 +48,8 @@
 }
 
 .view {
-  background-color: teal;
+  background-color: var(--btn1);
 }
 .delete {
-  background-color: crimson;
+  background-color: var(--btn2);
 }

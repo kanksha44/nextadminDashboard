@@ -37,7 +37,8 @@ const Righbar = () => {
             commodi adipisci odit, quo aliquid!
           </p>
           <button className={styles.button}>
-            <MdReadMore />
+            <MdReadMore /> 
+            
             Learn
           </button>{" "}
         </div>

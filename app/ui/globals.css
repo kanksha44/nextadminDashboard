@@ -1,8 +1,21 @@
-:root {
+/* :root {
   --bg: #151c2c;
   --bgSoft: #182237;
   --text: #fff;
   --textSoft: #b7bac1;
+} */
+:root {
+  --bg: #f0f4fc; /* Light blue background */
+  --bgSoft: #d4e0f5; /* Slightly darker blue background */
+  --text: #333; /* Dark text */
+  --textSoft: #002467; /* Soft dark text */
+  --hoverCol: #99b7f7; /* Accent color (var(--btn1)) */
+  --btn1: rgba(0, 128, 128, 0.542);
+  --btn2: crimson;
+  --pendingBtn: #ffaa00;
+  --cancelledBtn: #2aadffff;
+  --done: #fa1b1b;
+  --positive: rgb(0, 47, 255);
 }
 
 * {

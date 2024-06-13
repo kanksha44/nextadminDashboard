@@ -14,6 +14,8 @@ import {
 import MenuLink from "./menuLink/MenuLink";
 import Image from "next/image";
 import { auth, signOut } from "@/app/auth";
+import { redirect } from "next/dist/server/api-utils";
+import { logOut } from "@/app/authconfig";
 
 const menuItems = [
   {
@@ -79,6 +81,34 @@ const menuItems = [
 ];
 
 const Sidebar = async () => {
+  //----
+  const handleLogout = async () => {
+    "use server";
+    await signOutAndRedirect();
+  };
+
+  const signOutAndRedirect = async () => {
+    "use server";
+
+    try {
+      await signOut({ redirect: false }); // Ensure redirect is false to manage manually
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+
+    redirect("/login"); // Redirect to login page after signing out
+  }; //----
+
+  //----
+
+  const authResult = await auth();
+  if (!authResult || !authResult.user) {
+    // Handle the case where auth returns null or user is not present
+    console.error("User not authenticated");
+    return <div>Please log in to access the dashboard.</div>;
+  }
+
+  //-----
   const { user } = await auth();
   return (
     <div className={styles.container}>
@@ -108,8 +138,9 @@ const Sidebar = async () => {
       <form
         action={async () => {
           "use server";
-          await signOut();
+          await signOut({ redirect: false });
         }}
+        // redirect("/login");
       >
         <button className={styles.logout}>
           <MdLogout />

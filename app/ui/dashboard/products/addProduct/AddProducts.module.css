@@ -29,7 +29,7 @@
 .form button {
   width: 100%;
   padding: 20px;
-  background-color: teal;
+  background-color: var(--btn1);
   color: #fff;
   border: none;
   border-radius: 5px;
