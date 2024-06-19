@@ -104,7 +104,7 @@ const Sidebar = async () => {
   const authResult = await auth();
   if (!authResult || !authResult.user) {
     // Handle the case where auth returns null or user is not present
-    console.error("User not authenticated");
+    // console.error("User not authenticated");
     return <div>Please log in to access the dashboard.</div>;
   }
 
